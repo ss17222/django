@@ -1,0 +1,66 @@
+
+
+  <!DOCTYPE html>
+  <html>
+  <style>
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  div {
+    border-radius: 5px;
+    background-color:pink;
+    padding: 20px;
+  }
+  </style>
+  <body>
+    <h1>Edit Your Details</h1>
+  
+  
+  <div>
+      <div align="center">
+      
+      <span style="color: red;">{{message}}</span></div>
+    <form action="{% url 'mild:edit' uid %}" method="POST">
+        {% csrf_token %}
+      <label for="fname">Email</label><br>
+      <input type="Email" id="email" name="email" maxlength="50" placeholder="{{instance.email}}" value="{{instance.email}}"><br>
+  
+      <label for="lname">First Name</label><br>
+      <input type="name" id="lname" name="fname"maxlength="30"  placeholder="{{instance.fname}}" value="{{instance.fname}}"><br>
+      <label for="lname">Last Name</label><br>
+      <input type="name" id="lname" name="lname"maxlength="30"  placeholder="{{instance.lname}}" value="{{instance.lname}}"><br>
+      <label for="lname">D.O.B</label><br>
+      <input type="date" id="lname" name="dob"maxlength="10"  placeholder="{{instance.dob}}" value="{{instance.dob}}"><br>
+
+      <label for="lname">Number</label><br>
+      <input type="number" id="lname" name="phone_number" maxlength="10" placeholder="{{instance.phone_number}}" value="{{instance.phone_number}}"><br>
+      
+      <button type="submit" >Submit</button>
+    </form>
+  </div>
+  
+  </body>
+  </html>
+  

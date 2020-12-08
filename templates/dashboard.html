@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+</head>
+
+<style>
+  body {
+    background-color:whitesmoke;
+  }
+
+  table,
+  th,
+  td {
+    text-align: center;
+    border: 1px solid blue;
+    text-decoration: none;
+  }
+</style>
+
+<body>
+
+  <a href="{% url 'mild:logout' %}"><span style="background-color: blue; color:floralwhite;    padding: 15px;    float: right; ">Logout</span></a>
+  <h4 style="font-weight: bolder; color:black;    font-size: 36px;">Records</h4>
+  <div class="container">
+    <div align="center"><span style="color:white;">{{message}}</span></div>
+    <table style="width: 100%;">
+     
+      <tr>
+
+        <th>ID</th>
+        <th>EMAIL</th>
+        <th>FIRST NAME</th>
+        <th>Last NAME</th>
+        <th>D.O.B</th>
+
+  
+        <th>MOBILE NO.</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+      </tr>
+      {% for i in users %}
+      <tr>
+        
+        <td>{{i.id}}</td>
+       
+        <td>{{i.email}}</td>
+        <td>{{i.fname}}</td>
+        <td>{{i.lname}}</td>
+        <td>{{i.dob}}</td>
+
+        <td>{{i.phone_number}}</td>
+        <td><a href="{% url 'mild:edit' i.id %}" style="color:white; background-color:blue;text-decoration: none;">EDIT</a></td>
+        <td><a href="{% url 'mild:delete' i.id %}" style="color:white; background-color:RED;text-decoration: none;">DELETE</a></td>
+      </tr>
+      {% endfor %}
+
+    </table>
+  </div>
+</body>
+
+</html>
